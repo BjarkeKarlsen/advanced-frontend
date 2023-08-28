@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {MatListModule} from '@angular/material/list';
 import { CommonModule } from '@angular/common';
+import { Course } from "models";
 
 @Component({
   selector: 'app-course-list-item',
@@ -9,5 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./course-list-item.component.css']
 })
 export class CourseListItemComponent {
-
+  @Input() course: Course | undefined;
 }

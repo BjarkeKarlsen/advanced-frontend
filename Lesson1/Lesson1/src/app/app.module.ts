@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { CourseListItemComponent} from "./course-list-item/course-list-item.component";
+import { CourseListComponent } from './course-list/course-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CourseListItemComponent
+    CourseListItemComponent,
+    CourseListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
