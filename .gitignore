@@ -145,3 +145,4 @@ fabric.properties
 # *.iml
 # modules.xml
 .json
+*.json
