@@ -98,3 +98,4 @@ baseline.json
 # Husky
 .husky/_
 aio/content/examples/.DS_Store
+Lesson0/.idea/vcs.xml
