@@ -1,0 +1,13 @@
+<h1>Users</h1>
+
+<ng-template ngFor let-billionaire [ngForOf]="$billionaires" let-i="index">
+  <p>{{ billionaire }}</p>
+  <li><a routerLink="'/' + billionaire.id">{{ billionaire }}</a></li>
+</ng-template>
+
+<!--<ng-template ngFor let-billionaire ngForOf=$billionaires let-i="index">-->
+<!--  <p>{{billionaire}}</p>-->
+<!--  <li><a [routerLink]="'/' + billionaire.id">{{ billionaire }}</a></li>-->
+<!--</ng-template>-->
+
+<p>{{$billionaires.valueOf()}}</p>
