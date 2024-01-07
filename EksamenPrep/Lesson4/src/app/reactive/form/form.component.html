@@ -1,0 +1,52 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-wrapper">
+    <input type="text" autocomplete="username email" name="name" placeholder="Name" required #name="ngModel" ngModel />
+
+    <div ngModelGroup="passwordGroup" appPassworsEqual #passwordGroup="ngModelGroup">
+      <input type="password" autocomplete="new-password" name="password" ngModel placeholder="Password" />
+      <br/>
+      <input type="password" autocomplete="new-password" name="confirm_password" ngModel placeholder="Confirm password" />
+      <div *ngIf="passwordGroup.invalid && (passwordGroup.dirty || passwordGroup.touched)">
+        <div *ngIf="passwordGroup.errors?.['must_match']">
+          {{ passwordGroup.errors?.['must_match'] }}
+        </div>
+      </div>
+    </div>
+
+    <select name="race" required ngModel #race="ngModel" ngModel>
+      <option [ngValue]="" disabled selected>Race</option>
+      <option *ngFor="let race of races$ | async" [ngValue]="race">{{race.name}}</option>
+    </select>
+    <div *ngIf="race?.invalid && (race?.dirty || race?.touched)" class="alert alert-danger">
+      {{race?.errors?.['required']}}
+    </div>
+    <br/>
+
+
+    <select name="class" ngModel required #class="ngModel">
+      <option [ngValue]="" disabled selected>Class</option>
+      <option *ngFor="let class of classes$ | async" [ngValue]="class">{{ class.name }} </option>
+    </select>
+    <div *ngIf="class?.invalid && (class?.dirty || class?.touched)" class="alert alert-danger">
+      <div *ngIf="class?.errors?.['required']">
+        {{ class?.errors! | json}}
+      </div>
+    </div>
+    <br/>
+
+    <input name="level" id="level" #level="ngModel" ngModel required min="1" max="60" type="number" placeholder="Level"/>
+    <div *ngIf="level?.errors?.['min']">
+      {{ level?.errors! | json }}
+    </div>
+    <div *ngIf="level?.errors?.['man']">
+      {{ level?.errors! | json }}
+    </div>
+    <br/>
+
+    <input name="description" ngModel required type="description" />
+    <input type="submit" value="submit">
+  </div>
+</form>
+
+{{ form.value | json }}
+{{ form.valid }}
