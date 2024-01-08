@@ -12,13 +12,18 @@ export class ChildComponent {
 
    // C-2-P
    @Output() childEvent = new EventEmitter<string>();
+   sendDataToParent() {
+     this.childEvent.emit('Hello from child')
+   }
+
 
    service$: DataServiceService;
 
    constructor(service: DataServiceService) {
-     this.childEvent.emit('Hello from child')
+
      this.service$ = service;
    }
+
 
   //Service
    receiveDataFromParent( ) {
