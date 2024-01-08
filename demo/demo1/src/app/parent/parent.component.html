@@ -1,0 +1,3 @@
+<p>parent works!</p>
+<app-child [childInput]="dataToSend" (childEvent)="handleChildData($event)"></app-child>
+<button (click)="sendDataToChild()">Send Data to child</button>
