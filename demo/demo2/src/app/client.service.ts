@@ -19,4 +19,15 @@ export class ClientService {
       retry(5)
     )
   }
+
+  getClient(uid: number): Observable<Client> {
+    console.log("called")
+    return this.client.get<Client>(this.host + uid).pipe(
+      catchError((e: HttpErrorResponse) => {
+        console.error(e.message)
+        return throwError(() => e);
+      }),
+      retry(5)
+    )
+  }
 }
